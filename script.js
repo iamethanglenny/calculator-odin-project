@@ -1,103 +1,116 @@
-let currentValue = '';
-let operator = '';
-let storedValue = '';
-let isNewValue = false;
+let currentValue = ''; // Holds the current input value
+let storedValue = '';  // Holds the accumulated result
+let operator = '';     // Holds the current operator
+let isNewValue = true; // Indicates if we are starting a new number input
 
-// Basic functions to be called later in the application
+// Basic functions to perform arithmetic
 function sum(a, b) {
-    return (a + b);
+    return a + b;
 }
 
 function subtract(a, b) {
-    return (a - b);
+    return a - b;
 }
 
 function divide(a, b) {
     if (b === 0) {
         return 'lmao';
-    } else {
-        return (a / b)};
+    }
+    return a / b;
 }
 
-function multiply(firstNum, secondNum) {
-    return (firstNum * secondNum);
+function multiply(a, b) {
+    return a * b;
 }
 
 let displayContent = document.getElementById("display");
-let displayValue = '';
 
+// Helper to update display
+function updateDisplay(value) {
+    displayContent.innerText = value;
+}
+
+// Handle number input
 function addToDisplay(value) {
-    if (displayValue.length <= 8) {
-        displayValue += value;
-        displayContent.innerText = displayValue;
+    if (isNewValue) {
+        currentValue = value;
+        isNewValue = false;
+    } else {
+        currentValue += value;
+    }
+    updateDisplay(currentValue);
+}
+
+// Clear display and reset
+function clearDisplay() {
+    currentValue = '';
+    storedValue = '';
+    operator = '';
+    isNewValue = true;
+    updateDisplay('0');
+}
+
+// Perform operation
+function operate(storedValue, operator, currentValue) {
+    const a = parseFloat(storedValue);
+    const b = parseFloat(currentValue);
+    
+    switch (operator) {
+        case '+':
+            return sum(a, b);
+        case '-':
+            return subtract(a, b);
+        case '*':
+            return multiply(a, b);
+        case '/':
+            return divide(a, b);
+        default:
+            return b; // Return the current number if no operator
     }
 }
 
-function clearDisplay() {
-    displayValue = '';
-    firstNum = '';
-    operator = '';
-    secondNum = '';
-    isSecondNum = false;
-    displayContent.innerText = '0';
+// Handle operator press
+function selectOperator(op) {
+    if (storedValue === '') {
+        // First operation, store the current value
+        storedValue = currentValue;
+    } else if (!isNewValue) {
+        // Perform the previous operation
+        storedValue = operate(storedValue, operator, currentValue).toString();
+        updateDisplay(storedValue);
+    }
+
+    operator = op;
+    isNewValue = true; // Ready for the next number input
 }
 
-function decimal() {
-    if (!displayValue.includes('.')) {
-        if (displayValue === '0') {
-            displayValue === '0.';
-        } else {
-            displayValue += '.';
-        }
-        displayContent.innerText = displayValue;
+// Handle equals press for final calculation
+function calculate() {
+    if (storedValue !== '' && operator !== '') {
+        storedValue = operate(storedValue, operator, currentValue).toString();
+        updateDisplay(storedValue);
+        operator = '';
+        isNewValue = true; // Allow starting a new calculation
     }
 }
 
 function percentage() {
-    if (displayValue === '') return;
-    const numberValue = parseFloat(displayValue);
-    displayValue = (numberValue / 100).toFixed(9).toString();
-    displayContent.innerText = displayValue;
+    if (currentValue === '') return;
+    const numberValue = parseFloat(currentValue);
+    currentValue = (numberValue / 100).toString();
+    updateDisplay(currentValue);
 }
 
 function positiveNegative() {
-    if (displayValue === '') return;
-    const numberValue = parseFloat(displayValue);
-    displayValue = (numberValue * -1).toString();
-    displayContent.innerText = displayValue;
+    if (currentValue === '') return;
+    const numberValue = parseFloat(currentValue);
+    currentValue = (numberValue * -1).toString();
+    updateDisplay(currentValue);
 }
 
-function operate(firstNum, operator, secondNum) {
-    firstNum = parseFloat(firstNum);
-    secondNum = parseFloat(secondNum);
-
-    if (operator === '+') {
-        return sum(firstNum, secondNum);
-    } else if (operator === '-') {
-        return subtract(firstNum, secondNum);
-    } else if (operator === '/') {
-        return divide(firstNum, secondNum);
-    } else if (operator === '*') {
-        return multiply(firstNum, secondNum);
-    } else {
-        return 'error';
-    }
-}
-
-function selectOperator(op) {
-    if (!isSecondNum) {
-        firstNum = displayValue;
-        operator = op;
-        displayValue = '';
-        isSecondNum = true;
-    }
-}
-
-function calculate() {
-    if (isSecondNum && displayValue !== '') {
-        secondNum = displayValue;
-        const result = operate(firstNum, operator, secondNum);
-        displayContent.innerText = result.toString();
-        isSecondNum = false;
+function decimal() {
+    if (!currentValue.includes('.')) {
+        currentValue += '.';
+        updateDisplay(currentValue);
     }
 }
