@@ -7,20 +7,56 @@ let secondNum = '';
 function sum(firstNum, secondNum) {
     return (firstNum + secondNum);
 }
-console.log(sum(3, 5))
 
 function subtract(firstNum, secondNum) {
     return (firstNum - secondNum);
 }
-console.log(subtract(3, 5))
 
 function divide(firstNum, secondNum) {
-    return (firstNum / secondNum);
+    if (secondNum === 0) {
+        return 'lmao';
+    } else {
+        return (firstNum / secondNum)};
 }
-console.log(divide(3, 5))
 
 function multiply(firstNum, secondNum) {
     return (firstNum * secondNum);
 }
-console.log(multiply(3, 5))
 
+function clear() {
+    let firstNum = '';
+    let operator = '';
+    let secondNum = '';
+}
+
+function decimal() {
+
+}
+
+function percentage() {
+
+}
+
+function positiveNegative() {
+
+}
+
+function display() {
+
+}
+
+function operate(firstNum, operator, secondNum) {
+    if (operator === '+') {
+        return sum(firstNum, secondNum);
+    } else if (operator === '-') {
+        return subtract(firstNum, secondNum);
+    } else if (operator === '/') {
+        return divide(firstNum, secondNum);
+    } else if (operator === '*') {
+        return multiply(firstNum, secondNum);
+    } else {
+        return 'lmao'
+    }
+}
+
+console.log(operate(5, '', 3))
