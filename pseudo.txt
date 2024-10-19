@@ -6,7 +6,7 @@
 4. Divide 
 
 ## Notes:
-* Make the following variables: firstNum, operator, secondNum (these will be used later for display).
+* Make the following variables: a, operator, b (these will be used later for display).
 * Enable key presses for numbers and assignment operators.
 
 

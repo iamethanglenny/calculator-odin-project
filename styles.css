@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body, html {
     height: 100%;
     margin: 0;
@@ -23,7 +27,17 @@ body, html {
     width: 100%;
     flex: 1;
     min-height: 100px;
-    background-color: rgb(102, 100, 100);
+    background-color: rgb(0, 0, 0);
+    font-size: 65px;
+    color: white;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+    padding-right: 20px;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
 .button-container {
@@ -37,7 +51,7 @@ body, html {
 button {
     flex: 1 1 calc(25% - 10px);
     border-radius: 5px;
-    min-height: 85px;
+    min-height: 80px;
     width: 100%;
     font-size: 36px;
 }
