@@ -8,27 +8,27 @@
 </head>
 <body>
     <div class="calc-container">
-        <div class="display"></div>
+        <div class="display" id="display">0</div>
         <div class="button-container">
-        <button class="grey">AC</button>
-        <button class="grey">+/-</button>
-        <button class="grey">%</button>
-        <button class="orange">/</button>
-        <button class="standard">7</button>
-        <button class="standard">8</button>
-        <button class="standard">9</button>
-        <button class="orange">*</button>
-        <button class="standard">4</button>
-        <button class="standard">5</button>
-        <button class="standard">6</button>
-        <button class="orange">-</button>
-        <button class="standard">1</button>
-        <button class="standard">2</button>
-        <button class="standard">3</button>
-        <button class="orange">+</button>
-        <button class="standard double">0</button>
-        <button class="standard">.</button>
-        <button class="orange">=</button>
+        <button class="grey" onclick="clearDisplay()">AC</button>
+        <button class="grey" onclick="positiveNegative()">+/-</button>
+        <button class="grey" onclick="percentage()">%</button>
+        <button class="orange" onclick="selectOperator('/')">/</button>
+        <button class="standard" onclick="addToDisplay('7')">7</button>
+        <button class="standard" onclick="addToDisplay('8')">8</button>
+        <button class="standard" onclick="addToDisplay('9')">9</button>
+        <button class="orange" onclick="selectOperator('*')">*</button>
+        <button class="standard" onclick="addToDisplay('4')">4</button>
+        <button class="standard" onclick="addToDisplay('5')">5</button>
+        <button class="standard" onclick="addToDisplay('6')">6</button>
+        <button class="orange" onclick="selectOperator('-')">-</button>
+        <button class="standard" onclick="addToDisplay('1')">1</button>
+        <button class="standard" onclick="addToDisplay('2')">2</button>
+        <button class="standard" onclick="addToDisplay('3')">3</button>
+        <button class="orange" onclick="selectOperator('+')">+</button>
+        <button class="standard double" onclick="addToDisplay('0')">0</button>
+        <button class="standard" onclick="decimal()">.</button>
+        <button class="orange" onclick="calculate()">=</button>
         </div>
     </div>
     <script src="script.js"></script>
