@@ -114,3 +114,39 @@ function decimal() {
         updateDisplay(currentValue);
     }
 }
+
+// Handle keydown events
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+
+    // If the key is a number, add it to the display
+    if (!isNaN(key)) { // Check if the key is a number
+        addToDisplay(key);
+    }
+
+    // Handle operators
+    if (key === '+') {
+        selectOperator('+');
+    } else if (key === '-') {
+        selectOperator('-');
+    } else if (key === '*') {
+        selectOperator('*');
+    } else if (key === '/') {
+        selectOperator('/');
+    }
+
+    // Handle decimal point
+    if (key === '.') {
+        decimal();
+    }
+
+    // Handle Enter key for calculation
+    if (key === 'Enter') {
+        calculate();
+    }
+
+    // Handle Backspace for clearing the current input
+    if (key === 'Backspace') {
+        clearDisplay();
+    }
+});
