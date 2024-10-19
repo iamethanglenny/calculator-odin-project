@@ -1,0 +1,37 @@
+# First: Basic Functions
+
+1. Add
+2. Subtract
+3. Multiply
+4. Divide 
+
+## Notes:
+* Make the following variables: firstNum, operator, secondNum (these will be used later for display).
+* Enable key presses for numbers and assignment operators.
+
+
+# Secondly: Function operator()
+
+* Takes in the above-mentioned variables and calls one of the four functions on the variables.
+
+
+# Thirdly: HTML Calculator
+
+* Buttons for each digit, operator, decimal place, display, etc. (see link for inspiration https://mrbuddh4.github.io/calculator/)
+
+## The Structure
+-> main calc container (border grey and background-color black)
+-> display div, fills the full width of the calc container
+-> grid of 4 x 4 holding values
+-> 3 grid-squares, with the first one being 2x the size of one grid-square (for the zero digit)
+
+# Fourthly: Working Calculator 
+
+* Store the first number and second, using the operator the user clicks and outputting the answer when the "=" clicked.
+### Example: User clicks 7 + 5 (store 12) - 4 (subtract 4 from 12) = (output 8)
+
+* Round answers to 3 decimals
+* Take note of users pressing "=" before typing digits
+* Clear needs to wipe all data
+* Watch out for division of zero + alert user a message in display.
+* Add backspace to allow one digit to be removed per backspace click.
