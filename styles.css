@@ -3,7 +3,6 @@ body, html {
     margin: 0;
 }
 
-
 .calc-container {
     display: flex;
     flex-direction: column;
@@ -40,10 +39,15 @@ button {
     border-radius: 5px;
     min-height: 85px;
     width: 100%;
+    font-size: 36px;
 }
 
 .grey {
     background-color: grey;
+}
+
+.grey:hover {
+    background-color: rgb(185, 185, 185);
 }
 
 .orange {
@@ -51,9 +55,22 @@ button {
     color: white;
 }
 
+.orange:hover {
+    background-color: rgb(250, 201, 110);
+}
+
+.orange:active {
+    background-color: white;
+    color: orange;
+}
+
 .standard {
     color: white;
     background-color: black;
+}
+
+.standard:hover {
+    background-color: rgb(37, 37, 37);
 }
 
 .standard.double {
